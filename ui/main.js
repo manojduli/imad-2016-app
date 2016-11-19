@@ -1,16 +1,16 @@
 console.log('Loaded!');
 
-
-//change the text of the main-text div
+//Change the main-text
 var element = document.getElementById('main-text');
-element.innerHTML='HAI THIS IS MANOJ DULI ';
+element.innerHTML = 'It is FUN';
 
-//move the image
-var img = document.getElementById('imadi');
-var marginleft=0;
-function moveright () {
-    marginleft = marginleft + 1;
+//Move the Image
+var img = document.getElementById('imad');
+var marginLeft = 0;
+function moveRight(){
+    marginLeft= marginLeft+10;
+    img.style.marginLeft= marginLeft+'px';
 }
-img.onclick = function () {
-    var interval = setInterval(moveRight,50);
-};
+img.onclick=function(){
+    var interval=setInterval(moveRight,10);
+}
