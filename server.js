@@ -1,7 +1,12 @@
+var express = require('express');
+var morgan = require('morgan');
+var path = require('path');
+
 var app = express();
-  app.use(morgan('combined'));
- var articles ={
-  'article-one': {
+app.use(morgan('combined'));
+
+var article={
+   'article-one': {
         title:'article one | manoj duli',
         heading:'article one',
         date:'19 th november 2016',
@@ -20,7 +25,7 @@ var app = express();
                 
                 
     },
-  'article-two': {
+    'article-two': {
         title:'article two | manoj duli',
             heading:'article two',
             date:'15 th november 2016',
@@ -29,7 +34,7 @@ var app = express();
                     HAI THIS IS "MANOJ DULI"THIS IS MY SECOND ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY SECOND ARTICLE.
                 </p>`
        },
-  'article-three': {
+    'article-three': {
         title:'article two | manoj duli',
             heading:'article two',
             date:'11 th november 2016',
@@ -38,65 +43,60 @@ var app = express();
                     HAI THIS IS "MANOJ DULI"THIS IS MY SECOND ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY SECOND ARTICLE.
                 </p>`
         }
- };
- function createTemplate(data){
-     var title=data.title;
-     var heading=data.heading;
-     var date=data.date;
-     var contents=data.contents;
- }
-var htmltemplate=`
-        <html>
-        <head>
-            <title>
-               ${title}
-            </title>
-            <meta name="viexport" content="width-device-width,initial-scale-1"/>
-            <link href="/ui/style.css" rel="stylesheet" />
-        </head>
-        <body>
-            <div class="container">
-              <div>
-                <a href="/">home</a>
-              </div>
-              <hr/>
-              <h3>
-                ${heading}
-              </h3>
-              <div>
-               ${date}
-              </div>
-              <div>
-                ${content}
-              </div>
-            </div>
-           
-        </body>
+};    
+
+function createTemplate(data){
+    var title=data.title;
+    var heading=data.heading;
+    var date=data.date;
+    var content=data.content;
+    var htmlTemplate=`
+    <html>
+    <head>
+        <title>
+            ${title}
+        </title>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class = "container">
+         <div>
+             <a href="/">Home</a>
+         </div>
+         <h3>
+            ${heading}
+         </h3>
+         <div>
+            ${date}
+         </div>
+         <div>
+            <p>
+                ${content}  
+            </p>
+         </div>
+        </div>
+    </body>
     </html>
-    `;
-    return htmltemplate;
+`;
+return htmlTemplate;
 }
 
- 
-  app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'index.html'));
- });
- 
- 
-  app.get('/:article-Name',function(req,res){
-      var articleName=req.params.articleName;
-  res.send(createTemplate(articles[articleName]));
-});
-app.get('/article-two',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html')); 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-three',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));   
+app.get('/:articleName',function (req,res){
+  var articleName=req.params.articleName;    
+  res.send(createTemplate(article[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+
+app.get('/ui/main.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
 app.get('/ui/madi.png', function (req, res) {
