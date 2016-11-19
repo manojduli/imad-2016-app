@@ -7,6 +7,10 @@ element.innerHTML='new value';
 
 //move the image
 var img = document.getElementById('imadi');
+var marginleft=0;
+function moveright () {
+    marginleft = marginleft + 'px';
+}
 img.onclick = function () {
-    img.style.marginleft='100px';
+    var interval = setInterval(moveRight,100);
 };
