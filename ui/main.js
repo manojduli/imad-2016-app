@@ -9,8 +9,8 @@ element.innerHTML='new value';
 var img = document.getElementById('imadi');
 var marginleft=0;
 function moveright () {
-    marginleft = marginleft + 'px';
+    marginleft = marginleft + 1;
 }
 img.onclick = function () {
-    var interval = setInterval(moveRight,100);
+    var interval = setInterval(moveRight,50);
 };
