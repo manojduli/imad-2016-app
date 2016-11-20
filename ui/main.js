@@ -13,7 +13,7 @@ function moveRight(){
 }
 img.onclick=function(){
     var interval=setInterval(moveRight,50);
-};    
+};   
 //Counter code
 var button = document.getElementById('counter');
 var counter = 0;
@@ -32,7 +32,7 @@ button.onclick=function(){
     //NOT DONE YET
   };
    //MAKE THE REQUEST
-   request.open('GET','http://manojduli.imad.hasura.app-io',true)
+   request.open('GET','http://manojduli.imad.hasura.app-io',true);
    request.send(null);
     
 };
