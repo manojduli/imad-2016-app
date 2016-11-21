@@ -1,7 +1,9 @@
+
 body {
-    font-family: san serif;
-    background-color: white;
-    margin-top: 60px;
+    font-family: sans-serif;
+    background-image: url("http://www.baltana.com/files/wallpapers-1/Kabali-Rajinikanth-Wallpaper-00928.jpg");
+    background-size:1300px 700px;
+    margin-top: 75px;
 }
 
 .center {
@@ -20,12 +22,12 @@ body {
     height: 200px;
 }
 
-        .container {
-                    max-width: 800px;
-                    margin: 0 auto;
-                    color: black;
-                    font-family: san serif;
-                    padding-right: 10px;
-                    padding-left: 20px;
-        }
-       
+ .container{
+                 max-width: 800px;
+                 margin: 0 auto;
+                 color: #b3a451;
+                 font-family: sans-serif;
+                 padding-top: 20px;
+                 padding-right: 20px;
+                 padding-left: 20px;
+ }       
