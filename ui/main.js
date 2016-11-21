@@ -43,7 +43,7 @@ submit.onclick=function(){
 	  }
 	};
      var nameInput=document.getElementById('name');
-     	var name=nameInput.value;
+     var name=nameInput.value;
 	request.open('GET','http://manojduli.imad.hasura-app.io/submit-one?name='+name,true);
 	request.open('GET','/submit-one?name='+name,true);
 	request.send(null);
