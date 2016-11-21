@@ -7,34 +7,44 @@ var app = express();
 app.use(morgan('combined'));
 
 var article={
-    'article-one':{
-        title:'This is It',
-        heading:'ARTICLE ONE',
-        date:'oct 5,2016',
-        content:` <p>
-                    Hey Guys This Is JAi RAm Desik Saying a warm welcome to you fellas
-        
-                </p>`
+    'article-one': {
+        title:'article one | manoj duli',
+        heading:'article one',
+        date:'19 th november 2016',
+        content:`
+            <p>
+                    HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY FIRST ARTICLE.HAI THIS IS "MANOj DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE.
+            </p>
+                                 
+            <p>
+                    HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY FIRST ARTICLE.HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE.
+                        
+            </p>
+            <p>
+                    HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY FIRST ARTICLE.HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE.
+            </p>` 
+                
+                
     },
-    'article-two':{
-        title:'This is It 2',
-        heading:'ARTICLE TWO',
-        date:'oct 5,2016',
-        content:` <p>
-                    Yo check it out this is my second article                              
-        
+    'article-two': {
+        title:'article two | manoj duli',
+            heading:'article two',
+            date:'15 th november 2016',
+            content:`
+                <p>
+                    HAI THIS IS "MANOJ DULI"THIS IS MY SECOND ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY SECOND ARTICLE.
                 </p>`
-        
-    },
-    'article-three':{
-        title:'This is It 3',
-        heading:'ARTICLE THREE',
-        date:'oct 30,2016',
-        content:` <p>
-                    NARAYANAM JAI RAM DESIK
-                    TI SI YM EMAN 
-        
+       },
+    'article-three': {
+        title:'article two | manoj duli',
+            heading:'article two',
+            date:'11 th november 2016',
+            content:`
+                <p>
+                    HAI THIS IS "MANOJ DULI"THIS IS MY SECOND ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY SECOND ARTICLE.
                 </p>`
+   
+    
     }
 };
 
