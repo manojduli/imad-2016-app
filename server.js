@@ -1,3 +1,4 @@
+
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
@@ -6,44 +7,36 @@ var app = express();
 app.use(morgan('combined'));
 
 var article={
-   'article-one': {
-        title:'article one | manoj duli',
-        heading:'article one',
-        date:'19 th november 2016',
-        content:`
-            <p>
-                    HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY FIRST ARTICLE.HAI THIS IS "MANOj DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE.
-            </p>
-                                 
-            <p>
-                    HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY FIRST ARTICLE.HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE.
-                        
-            </p>
-            <p>
-                    HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY FIRST ARTICLE.HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE. HAI THIS IS "MANOJ DULI"THIS IS MY FIRST ARTICLE.
-            </p>` 
-                
-                
+    'article-one':{
+        title:'This is It',
+        heading:'ARTICLE ONE',
+        date:'oct 5,2016',
+        content:` <p>
+                    Hey Guys This Is JAi RAm Desik Saying a warm welcome to you fellas
+        
+                </p>`
     },
-    'article-two': {
-        title:'article two | manoj duli',
-            heading:'article two',
-            date:'15 th november 2016',
-            content:`
-                <p>
-                    HAI THIS IS "MANOJ DULI"THIS IS MY SECOND ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY SECOND ARTICLE.
+    'article-two':{
+        title:'This is It 2',
+        heading:'ARTICLE TWO',
+        date:'oct 5,2016',
+        content:` <p>
+                    Yo check it out this is my second article                              
+        
                 </p>`
-       },
-    'article-three': {
-        title:'article two | manoj duli',
-            heading:'article two',
-            date:'11 th november 2016',
-            content:`
-                <p>
-                    HAI THIS IS "MANOJ DULI"THIS IS MY SECOND ARTICLE. HAI THIS IS "MANOJ DULI" THIS IS MY SECOND ARTICLE.
+        
+    },
+    'article-three':{
+        title:'This is It 3',
+        heading:'ARTICLE THREE',
+        date:'oct 30,2016',
+        content:` <p>
+                    NARAYANAM JAI RAM DESIK
+                    TI SI YM EMAN 
+        
                 </p>`
-        }
-};    
+    }
+};
 
 function createTemplate(data){
     var title=data.title;
@@ -63,6 +56,12 @@ function createTemplate(data){
         <div class = "container">
          <div>
              <a href="/">Home</a>
+             <span style="display:inline-block; width: 100;"></span>
+             <a href="/article-one">ARTICLE ONE</a>
+             <span style="display:inline-block; width: 100;"></span>
+             <a href="/article-two">ARTICLE TWO</a>
+             <span style="display:inline-block; width: 100;"></span>
+             <a href="/article-three">ARTICLE THREE</a>
          </div>
          <h3>
             ${heading}
@@ -78,7 +77,7 @@ function createTemplate(data){
         </div>
     </body>
     </html>
-`;
+ `;
 return htmlTemplate;
 }
 
@@ -92,17 +91,24 @@ app.get('/counter',function(req,res){
     res.send(counter.toString());
 });
 
-var names=[];
-app.get('/submit-name', function (req, res){
-    var name=req.query.name;
-    names.push(name);
-    res.send(JSON.stringify(names));
+app.get('/favicon.ico', function(req, res){
+    res.sendFile(path.join(__dirname, 'ui', 'favicon.ico'));
 });
 
+var names = [];
+app.get('/submit-name',function(req,res){
+    //Get the namefrom the request
+    var name = req.query.name;
+    names.push(name);
+    //JSON:Javascript Object Notation
+    res.send(JSON.stringify(names));
+});
 app.get('/:articleName',function (req,res){
   var articleName=req.params.articleName;    
   res.send(createTemplate(article[articleName]));
 });
+
+
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
@@ -115,7 +121,6 @@ app.get('/ui/main.js', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
-
 
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
